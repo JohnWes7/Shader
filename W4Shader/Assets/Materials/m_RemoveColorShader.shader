@@ -60,7 +60,7 @@ Shader "Learn/m_RemoveColorShader"
                 return;
             }
 
-            float4 frag(float4 svposInput : SV_POSITION, float4 texInput : TEXCOORD0) : COLOR
+            float4 frag(float4 svposInput : SV_POSITION, float4 texInput : TEXCOORD0) : SV_Target
             {
                 float4 color = tex2D(_MainTex, texInput);
 
