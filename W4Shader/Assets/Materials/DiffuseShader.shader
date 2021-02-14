@@ -60,9 +60,12 @@ Shader "Learn/DiffuseShader"
                 //漫反射光照 = 光源的颜色色 * 材质的漫反射颜色 * MAX(0, 标准化后物体表面法线向量 * 标准化后光源方向向量)
                 float3 nor = normalize(mul((float3x3)unity_ObjectToWorld, input.normal)); //计算法向量
                 float3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz); //光源方向
+                //float4 tex = tex2D(_MainTex, input.uv);不能在这里调用
+
                 //计算
                 float3 col = _LightColor0 * _Color.rgb * max(0, dot(nor, worldLightDir));
-                
+                //float3 col = _LightColor0 * tex.rgb * max(0, dot(nor, worldLightDir)); 
+
                 output.color = float4(UNITY_LIGHTMODEL_AMBIENT.xyz + col, 1);
 
                 return output;
