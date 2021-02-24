@@ -64,7 +64,7 @@ Shader "Learn/DiffuseShader"
 
                 //计算
                 float3 col = _LightColor0 * _Color.rgb * max(0, dot(nor, worldLightDir));
-                //float3 col = _LightColor0 * tex.rgb * max(0, dot(nor, worldLightDir)); 
+                //float3 col = _LightColor0 * tex.rgb * max(0, dot(nor, worldLightDir));
 
                 output.color = float4(UNITY_LIGHTMODEL_AMBIENT.xyz + col, 1);
 
