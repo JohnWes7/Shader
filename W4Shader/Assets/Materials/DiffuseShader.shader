@@ -63,10 +63,10 @@ Shader "Learn/DiffuseShader"
                 //float4 tex = tex2D(_MainTex, input.uv);不能在这里调用
 
                 //计算
-                float3 col = _LightColor0 * _Color.rgb * max(0, dot(nor, worldLightDir));
+                float3 col = _LightColor0 * max(0, dot(nor, worldLightDir));
                 //float3 col = _LightColor0 * tex.rgb * max(0, dot(nor, worldLightDir));
 
-                output.color = float4(UNITY_LIGHTMODEL_AMBIENT.xyz + col, 1);
+                output.color = float4(col, 1);
 
                 return output;
             }
@@ -74,8 +74,8 @@ Shader "Learn/DiffuseShader"
             float4 frag (v2f input) : SV_Target
             {
                 // sample the texture
-                float4 tex = tex2D(_MainTex, input.uv);
-                float4 color = float4(tex.r * input.color.r, tex.g * input.color.g, tex.b * input.color.b, 1);
+                float4 tex = tex2D(_MainTex, input.uv) * _Color;
+                float4 color = (input.color + UNITY_LIGHTMODEL_AMBIENT) * tex;
                 
 
                 return color;

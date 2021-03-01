@@ -55,10 +55,11 @@ Shader "Learn/DiffusePixelShader"
                 return output;
             }
 
+            //phong着色（逐像素着色）
             float4 frag (v2f input) : SV_Target
             {
                 //图片颜色
-                float4 tex = tex2D(_MainTex, input.uv);
+                float4 tex = tex2D(_MainTex, input.uv) * _Color;
                 // apply fog
                 //UNITY_APPLY_FOG(i.fogCoord, col);
                 //标准化世界法线
@@ -69,9 +70,9 @@ Shader "Learn/DiffusePixelShader"
                 //漫反射光照 = 光源的颜色色 * 材质的漫反射颜色 * MAX(0, 标准化后物体表面法线向量 * 标准化后光源方向向量)
                 //float3 col = _LightColor0.rgb * _Color * max(0, dot(n_worldNormal, n_lightNormal);
                 //半兰伯特
-                float3 col = _LightColor0.rgb * _Color * (dot(n_worldNormal, n_lightNormal) * 0.5 + 0.5);
+                float3 col = tex.rgb * _LightColor0.rgb * (dot(n_worldNormal, n_lightNormal) * 0.5 + 0.5);
 
-                return float4(UNITY_LIGHTMODEL_AMBIENT.rgb + col, 1);
+                return float4(UNITY_LIGHTMODEL_AMBIENT.rgb * tex.rgb + col, 1);
             }
             ENDCG
         }
