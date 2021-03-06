@@ -1,9 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
+﻿
 Shader "Learn/PhongTex"
 {
     Properties
@@ -17,58 +12,20 @@ Shader "Learn/PhongTex"
     }
     SubShader
     {
-        Tags { "LightMode" = "ForwardBase" }
-        LOD 100
         
-        // pass
-        // {
-            
-        //     Cull front
-
-        //     CGPROGRAM
-        //     #pragma vertex vert
-        //     #pragma fragment frag
-        //     #include "UnityCG.cginc"
-        //     #include "Lighting.cginc"
-
-        //     struct appdata
-        //     {
-        //         float4 vertex : POSITION;
-        //         float3 normal : NORMAL;
-        //     };
-
-        //     struct v2f
-        //     {
-        //         float4 vertex : SV_POSITION;
-        //     };
-
-        //     float _OutLineLenght;
-        //     float4 _OutLineColor;
-
-        //     v2f vert(appdata v)
-        //     {
-        //         v2f o;
-        //         float3 worldPos = mul(unity_ObjectToWorld, v.vertex);
-        //         float dis = distance(_WorldSpaceCameraPos, worldPos);
-        //         float3 norl = normalize(v.normal) * _OutLineLenght * dis;
-        //         v.vertex.xyz += norl;
-        //         o.vertex = UnityObjectToClipPos(v.vertex);
-                
-        //         return o;
-        //     }
-
-        //     float4 frag(v2f i) : SV_TARGET
-        //     {
-        //         return float4(0, 0, 0, 0);
-        //     }
-        //     ENDCG
-        // }
+        Tags
+        {
+            "Queue" = "Geometry"
+            "RenderType" = "Opaque"
+        }
 
         pass
         {
-            //ZTest always
+            ZTest GEqual
             Cull front
-            //ZWrite off
+            ZWrite Off
+
+            
 
             CGPROGRAM
             #pragma vertex vert
@@ -113,6 +70,7 @@ Shader "Learn/PhongTex"
         Pass
         {   
             ZTest LEqual
+            ZWrite On
 
             CGPROGRAM
             #pragma vertex vert

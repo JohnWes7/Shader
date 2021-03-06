@@ -46,7 +46,8 @@ Shader "Unlit/uv"
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return fixed4(i.uv, 0, 1);
+                return fixed4(i.uv.x * abs(_SinTime.y), i.uv.y * abs(_SinTime.z), abs(_SinTime.w), 1);
+                
                 //return col;
             }
             ENDCG
