@@ -21,7 +21,7 @@ public class FogPost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScaneControl();
+        //ScaneControl();
     }
 
 

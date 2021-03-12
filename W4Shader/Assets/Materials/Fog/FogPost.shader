@@ -6,7 +6,7 @@
 
         _FogColor ("FogColor", Color) = (1, 1, 1, 1)
 
-        _FogD ("FogD", Range(0, 10)) = 0
+        _FogDensity ("FogDensity", Range(0, 10)) = 0
         _FogDmin ("FogDmin", float) = 0
         _FogDmax ("FogDmax", float) = 0
 
@@ -48,7 +48,7 @@
             sampler2D _CameraDepthTexture;
 
             float4 _FogColor;
-            float _FogD;
+            float _FogDensity;
             float _FogDmax;
             float _FogDmin;
             float4 _TL;
@@ -93,7 +93,8 @@
                 float3 worldPos = _WorldSpaceCameraPos + depth * i.interpolatedRay;
                 
                 float f = (_FogDmax - abs(worldPos.y)) / (_FogDmax - _FogDmin);
-                col = f * _FogColor + (1 - f) * col;
+                f = saturate(f * _FogDensity);
+                col = lerp(col, _FogColor, f);
                 
                 return col;
             }

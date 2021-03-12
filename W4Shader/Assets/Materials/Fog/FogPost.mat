@@ -61,7 +61,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FogD: 0
-    - _FogDmax: 50
+    - _FogDensity: 1.04
+    - _FogDmax: 122.6
     - _FogDmin: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -76,11 +77,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BL: {r: 1079.5562, g: -838.4611, b: -719.9816, a: 0}
-    - _BR: {r: -968.2659, g: -839.491, b: -862.8718, a: 0}
+    - _BL: {r: -1293.7588, g: -838.4611, b: 100.0101, a: 0}
+    - _BR: {r: 422.54877, g: -839.49097, b: 1226.1886, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TL: {r: 1101.9646, g: 268.11438, b: -1049.1047, a: 0}
-    - _TR: {r: -945.8573, g: 267.0844, b: -1191.9948, a: 0}
+    - _FogColor: {r: 1, g: 0.6875907, b: 0.4198113, a: 1}
+    - _TL: {r: -1474.2712, g: 268.11438, b: 376.1249, a: 0}
+    - _TR: {r: 242.03644, g: 267.0844, b: 1502.3033, a: 0}
   m_BuildTextureStacks: []

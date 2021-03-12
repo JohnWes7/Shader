@@ -3826,7 +3826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522811750}
   m_LocalRotation: {x: 0.13838513, y: -0.28332168, z: 0.041089244, w: 0.9480982}
-  m_LocalPosition: {x: 60.94, y: 24.49, z: -5.68}
+  m_LocalPosition: {x: 54.21, y: 27.83, z: -4.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2066517631}
@@ -3861,7 +3861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43efd3f9d8752864ba57bb69d169a1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fogPost: {fileID: 2100000, guid: b91fd19578ae8924b99ac3d4e6cb7383, type: 2}
+  fogPost: {fileID: 2100000, guid: 1d6004d0ef881f544ac819784e5d4b85, type: 2}
   dis: 300
   farDis: 300
   scanVe: 40
