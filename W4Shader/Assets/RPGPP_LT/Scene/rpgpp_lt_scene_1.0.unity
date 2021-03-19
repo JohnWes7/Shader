@@ -3846,7 +3846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   post: {fileID: 2100000, guid: fcc7eb7399128a94b83f50571ca1f161, type: 2}
-  distence: 86.02523
+  distence: 57.18523
   farDis: 200
   scanVe: 42
 --- !u!114 &522811757
@@ -3856,7 +3856,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522811750}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43efd3f9d8752864ba57bb69d169a1b6, type: 3}
   m_Name: 
@@ -11016,10 +11016,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -164.382
       objectReference: {fileID: 0}
-    - target: {fileID: 23875638514360068, guid: 00e2e59cbc04eab4a982218df54ce70b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58d53420af384224ea4cfee8973d18cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00e2e59cbc04eab4a982218df54ce70b, type: 3}
 --- !u!4 &1645495111 stripped
