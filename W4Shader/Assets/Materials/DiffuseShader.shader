@@ -5,7 +5,7 @@ Shader "Learn/DiffuseShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Color ("Color", Color) = (1, 1, 1, 1)
+        _CusColor ("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -26,11 +26,20 @@ Shader "Learn/DiffuseShader"
             #include "Lighting.cginc"
             
             //如果在cg编程中，顶点或偏远着色器接受多个数值的时候，一般会用结构体实现
+            CBUFFER_START(UnityPerMaterial)
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
+            float4 _CusColor;
 
+            CBUFFER_END
+
+            //CBUFFER_START(UnityPerDraw)
+            
+            //float4 _WorldSpaceLightPos0;
+            //float4 UNITY_LIGHTMODEL_AMBIENT;
+
+            //CBUFFER_END
             //从CPU接受到的数据
             struct appdata
             {
@@ -74,7 +83,7 @@ Shader "Learn/DiffuseShader"
             float4 frag (v2f input) : SV_Target
             {
                 // sample the texture
-                float4 tex = tex2D(_MainTex, input.uv) * _Color;
+                float4 tex = tex2D(_MainTex, input.uv) * _CusColor;
                 float4 color = (input.color + UNITY_LIGHTMODEL_AMBIENT) * tex;
                 
 
