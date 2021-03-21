@@ -16,8 +16,9 @@
     SubShader
     {
         Cull Off
-        Tags { "RenderType"="Opaque" }
-        LOD 200
+        Tags { "RenderType" = "Opaque" }
+        
+        //LOD 200
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
@@ -61,7 +62,7 @@
             float inAlpha = smoothstep(_DissolveAmount, _DissolveAmount + _EdgeWigth, noise);
             float midAlpha = step(_DissolveAmount + _MidWigth, noise);
 
-            c = lerp(c, _EdgeColor, outAlpha - inAlpha);
+            //c = lerp(c, _EdgeColor, outAlpha - inAlpha);
             c = lerp(c, _MidColor, outAlpha - midAlpha);
             
             clip(outAlpha - 0.5);
