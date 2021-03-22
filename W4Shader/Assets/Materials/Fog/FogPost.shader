@@ -6,7 +6,7 @@
 
         _FogColor ("FogColor", Color) = (1, 1, 1, 1)
 
-        _FogDensity ("FogDensity", Range(0, 10)) = 0
+        _FogDensity ("FogDensity", float) = 0
         _FogDmin ("FogDmin", float) = 0
         _FogDmax ("FogDmax", float) = 0
 
@@ -92,10 +92,16 @@
 
                 float3 worldPos = _WorldSpaceCameraPos + depth * i.interpolatedRay;
                 
-                float f = (_FogDmax - abs(worldPos.y)) / (_FogDmax - _FogDmin);
-                f = saturate(f * _FogDensity);
+                float dis = distance(worldPos, _WorldSpaceCameraPos.xyz);
+                //  dis *= _ProjectionParams.w;
+                // float f = (_FogDmax - abs(worldPos.y)) / (_FogDmax - _FogDmin);
+                // f = saturate(f * _FogDensity);
+                float f = dis * _ProjectionParams.w * _FogDensity;
+
+                f = saturate(f);
                 col = lerp(col, _FogColor, f);
                 
+                //return float4(dis, dis, dis, dis);
                 return col;
             }
             ENDCG
